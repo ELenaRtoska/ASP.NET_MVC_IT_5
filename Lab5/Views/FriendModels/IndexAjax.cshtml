@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "IndexAjax";
+}
+
+<h2>Index Friends - Ajax</h2>
+
+<table id="friendsTable1">
+   
+</table>
+
+@section scripts{
+    <script>
+        $(document).on("ready", function () {
+            $("#friendsTable1").DataTable({
+                ajax: {
+                    url: "/api/FriendModels1",
+                    dataSrc:""
+                },
+                columns: [
+                    {
+                        data: "Id"
+                    },
+                    {
+                        data:"idFriend"
+                    },
+                    {
+                        data: "ime"
+                        //render: function (settings, type, friend) {
+                        //    return "<a href='/FriendModels/Details/" + friend.Id + "'>" + friend.ime + "</a>";
+                        //}
+                    },
+                    {
+                        data:"mestoZiveenje"
+                    }
+                ]
+            });
+        });
+    </script>
+    
+    }
